@@ -1,0 +1,33 @@
+html(ng-app="myApp")
+  head
+    script(src="//www.google.com/jsapi")
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js')
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(src="/libs/ng-google-chart.js")
+
+    script(src='/js/app.js')
+    script(src='/js/controllers.js')
+
+    link(href='/css/npmt.css', rel='stylesheet')
+    link(href='/images/favicon.ico', rel="shortcut icon")
+    
+    title Nodechecker - Testing node modules 24h/7
+
+
+  body
+
+    #outer(style="width:100%")
+      div(style="width: 50%;margin: 0 auto;")
+        div(ng-controller="StatsCtrl", style="text-align: center")
+
+          .headerback
+            block headerp
+              include header
+
+          .content(ng-view)
+
+          .ground
+            block footerp
+              include footer
+
+

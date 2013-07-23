@@ -1,0 +1,13 @@
+{
+    "name"        : "npmt_site"
+  , "version"     : "0.0.1"
+  , "homepage"    : "http://nodechecker.com"
+  , "description" : "Testing npm modules 24h/7"
+  , "dependencies": {
+      "express"           : "*"
+      , "jade"              : "*"
+      , "stylus"            : "*"
+      , "redis"            : "*"
+    }
+  , "main"    : "./main.js"
+}

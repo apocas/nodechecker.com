@@ -1,0 +1,88 @@
+article
+  h2 Realtime Statistics
+
+  div(style='overflow: auto')
+    div(style='float:left; width:80%')
+      div(google-chart, chart="chart", style="{{chart.cssStyle}}")
+    div(style='float:left; width:20%')
+      div(style='overflow: auto')
+        div(style='float:left; width:100%')
+          div#total.val
+            {{stats.total}}
+          div modules verifed
+
+          div#failed.val
+            {{stats.failed}}
+          div timed out
+
+          div#rfailed.val
+            {{stats.rfailed}}
+          div invalid tarball
+
+          div#ok.val
+            {{stats.ok}}
+          div passed
+          
+          div#nok.val
+            {{stats.nok}}
+          div failed
+
+          div#inexistent.val
+            {{stats.inexistent}}
+          div tests nonexistent
+  div(style='margin-top:10px')
+    | Currently testing
+    br
+    span.val(style='font-size: 15px') {{stats.running}}
+
+article
+  h2 Idea
+  p Autonomously test all modules in the 
+    a(href='https://npmjs.org', target='_blank') npm
+    |  registry.
+article
+  h2 How does it work
+  p The npm registry is interated and in each module's tests existence is verified (it needs to be verified because 'npm test' exits with exit code 0 when the module does not feature tests), tarball is downloaded, installed. And finally 'npm test' is ran.
+  p This couldn't be done without a sandbox environment (it was tried, but people do alot of crazy stuff in their tests completely trashing the machine after running few thousand modules) instead all the above is done using 
+    a(href='http://docker.io', target='_blank') docker
+    |  containers.
+  p A container is created and then the module is tested inside it, while monitoring exit codes. In the end the container is killed and removed. Results are stored in a Redis instance.
+  p 5 days after module's last verification, it is verified again.
+  p If a module has a test script in package.json but have it's test code in .npmignore it will be marked as NOK on the first run. But on the next pass nodechecker will clone your git repo and test against it. (if you have an old/not working/private/broken... repo it will stay as nok).
+  p Test scripts like: "'echo "Error: no test specified" && exit 1" are marked as tests nonexistent.
+
+
+article
+  h2 API / Data
+  p GET 
+    a(href='http://npmt.abru.pt/api/timedout', target='_blank') /api/timedout
+    |  - modules that timed out during verification
+  p GET 
+    a(href='http://npmt.abru.pt/api/tarball', target='_blank')  /api/tarball
+    |  - modules with an invalid tarball
+  p GET 
+    a(href='http://npmt.abru.pt/api/ok', target='_blank')  /api/ok
+    |  - modules with passed tests
+  p GET 
+    a(href='http://npmt.abru.pt/api/nok', target='_blank')  /api/nok
+    |  - modules with failed tests
+  p GET 
+    a(href='http://npmt.abru.pt/api/withouttests', target='_blank')  /api/withouttests
+    |  - modules without tests
+
+article
+  h2 Disclaimer
+  p Timed out - it means that 5 minutes of running time was not enough.
+  p Invalid tarball - for some reason the tarball arrived corrupted.
+  p Test nonexistent - Tests were not detected.
+  p Failed - 'npm test' failed, this does NOT means the module is broken. Ex. A test that needs human intervention/input/configuration/...
+  p Globally this isn't by far a good scientific metric, it was an idea I wanted to try and see what results it produced. Please don't make judgements based on these results.
+
+article
+  h2 Improvements
+  p Refactor the code and make it available.
+  p Find out why 'npm test' exits with exit code 0 when there are no tests in the module.
+  p Improve container life cycle. (currently based on 
+    a(href='https://github.com/dotcloud/docker/wiki/Docker-run-improvements', target='_blank') these
+    |  ideas)
+  p Save every test output and make them available in the website.

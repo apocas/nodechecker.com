@@ -1,0 +1,219 @@
+
+
+
+
+borderbox {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+html[xmlns] .clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+}
+body {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: top center;
+  line-height: 140%;
+  -webkit-font-smoothing: antialised;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Chaparral Pro", "chaparral-pro", "Georgia", serif;
+}
+p {
+  font-family: "Chaparral Pro", "chaparral-pro", "Georgia", serif;
+  font-size: 18px;
+  color: #555;
+}
+#logo {
+  margin-top: 40px;
+}
+h1 {
+  font-size: 60px;
+  margin: 20px auto 10px auto;
+  padding-bottom: 10px;
+  font-weight: 600;
+  font-family: Gotham, "proxima-nova", sans-serif;
+  text-transform: uppercase;
+  color: #333;
+  line-height: 1;
+  max-width: 700px;
+}
+h1 span {
+  color: rgba(0,0,0,0.2);
+}
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  line-height: 1;
+}
+h3 {
+  font-size: 30px;
+  margin: 40px 0 40px 0;
+  color: #555;
+}
+a:link,
+a:visited {
+  color: #eb008b;
+}
+ol {
+  counter-reset: li;
+  padding-bottom: 40px;
+}
+ol > li {
+  position: relative;
+  width: 200px;
+  margin: 0 10px;
+  list-style: none;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 20px;
+}
+ol > li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 30px;
+  padding: 5px 4px 3px 4px;
+  color: #fff;
+  background: #00adee;
+  font-weight: bold;
+  margin-left: -15px;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -khtml-border-radius: 60px;
+  -o-border-radius: 60px;
+  -border-radius: 60px;
+  border-radius: 60px;
+}
+article {
+  border-top: 1px solid #eee;
+  max-width: 700px;
+  padding: 20px 0;
+  margin: 0px auto 20px auto;
+}
+article h2 {
+  font-weight: 400;
+  font-family: Gotham, "proxima-nova", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #333;
+  margin: 15px auto 20px auto;
+  max-width: 500px;
+  padding: 0 10px;
+}
+article p {
+  margin: 0 auto 20px auto;
+  text-align: left;
+  font-size: 20px;
+  line-height: 120%;
+  max-width: 500px;
+  padding: 0 10px;
+}
+article p+h2 {
+  margin-top: 60px;
+}
+footer {
+  width: 100%;
+  padding: 40px 0;
+  background: #00adee;
+}
+footer p,
+footer a:link,
+footer a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+footer a:after {
+  content: " // ";
+  color: rgba(255,255,255,0.3);
+}
+footer a:last-child:after {
+  content: "";
+}
+
+
+
+.val {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.sponsors {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.sponsors li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.sponsors li img {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-right: 13px;
+  margin-bottom: 13px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -o-transition: -webkit-filter 0.4s ease-in-out;
+  -ms-transition: -webkit-filter 0.4s ease-in-out;
+  -moz-transition: -webkit-filter 0.4s ease-in-out;
+  -webkit-transition: -webkit-filter 0.4s ease-in-out;
+  transition: -webkit-filter 0.4s ease-in-out;
+  opacity: 0.8;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.sponsors li img:hover {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  opacity: 1;
+  border: 1px solid #ccc;
+}
