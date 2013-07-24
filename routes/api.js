@@ -1,6 +1,6 @@
 var redis = require("redis");
 
-var redis_client = redis.createClient(6379, '127.0.0.1');
+var redis_client = redis.createClient(7556, '127.0.0.1');
 
 //so ugly... refactor later.
 exports.stats = function (req, res) {
