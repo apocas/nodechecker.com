@@ -9,7 +9,7 @@ This repo contains only the nodechecker.com website/frontend source code.
 
 Nodechecker engine [https://github.com/apocas/nodechecker-engine](https://github.com/apocas/nodechecker-engine)
 
-Nodechecker NPM crawler [https://github.com/apocas/nodechecker-crawker](https://github.com/apocas/nodechecker-crawler)
+Nodechecker NPM crawler [https://github.com/apocas/nodechecker-crawler](https://github.com/apocas/nodechecker-crawler)
 
 Nodechecker balancer [https://github.com/apocas/nodechecker-balancer](https://github.com/apocas/nodechecker-balancer)
 
