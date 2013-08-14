@@ -5,7 +5,7 @@ google.setOnLoadCallback(function () {
 });
 google.load('visualization', '1', {packages: ['corechart']});
 
-angular.module('myApp', ['googlechart.directives']).
+angular.module('myApp', ['googlechart.directives', 'ngSanitize']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {

@@ -1,4 +1,4 @@
-article
+article(style='margin: 0px auto 5px auto;')
   h2 Realtime Statistics
 
   div(style='overflow: auto')
@@ -35,54 +35,58 @@ article
     br
     span.val(style='font-size: 15px') {{stats.running}}
 
+article(ng-controller="SearchCtrl", style="margin: 0px auto 0px auto;")
+  form#searchbox(action="")
+    input#search(type="text", placeholder="Type a module name...", ng-model="module")
+    input#submit(type="submit", value="Search", ng-click='searchModule(module)')
+
+  div(style='margin-top: 10px; overflow: auto', ng-show='moddata')
+    div(style='margin: auto; display: table;')
+      div.infom.infomm MODULE:  
+      div.infom(ng-bind="moddata.module")
+      div.infom.infomm STATUS:  
+      div.infom(ng-bind="moddata.status")
+      div.infom.infomm TESTED:  
+      div.infom {{moddata.tested | date:'MM/dd/yyyy @ h:mma'}}
+    pre.output(ng-bind-html-unsafe="moddata.outputf", ng-show='moddata.outputf.length > 0')
+
 article
-  h2 Idea
-  p Autonomously test all modules in the 
-    a(href='https://npmjs.org', target='_blank') npm
-    |  registry.
-article
-  h2 How does it work
-  p The npm registry is interated and in each module's tests existence is verified (it needs to be verified because 'npm test' exits with exit code 0 when the module does not feature tests), tarball is downloaded, installed. And finally 'npm test' is ran.
-  p This couldn't be done without a sandbox environment (it was tried, but people do alot of crazy stuff in their tests completely trashing the machine after running few thousand modules) instead all the above is done using 
+  h2(style='margin-top:30px') How does it work
+  p In order to guarantee test standardization and equality all tests are done using 
     a(href='http://docker.io', target='_blank') docker
     |  containers.
-  p A container is created and then the module is tested inside it, while monitoring exit codes. In the end the container is killed and removed. Results are stored in a Redis instance.
-  p 5 days after module's last verification, it is verified again.
-  p If a module has a test script in package.json but have it's test code in .npmignore it will be marked as NOK on the first run. But on the next pass nodechecker will clone your git repo and test against it. (if you have an old/not working/private/broken... repo it will stay as nok).
-  p Test scripts like: "'echo "Error: no test specified" && exit 1" are marked as tests nonexistent.
+  p A container is created and then the module is tested inside it, while it's monitoring exit codes. In the end the container is killed and removed.
+  p If your module was updated since last test it will be tested again.
+  p
+    img(src="images/nodechecker.png")
+  p Test scripts like: "'echo "Error: no test specified" && exit 1" are considered dummy test scripts.
 
 
 article
   h2 API / Data
   p GET 
-    a(href='http://npmt.abru.pt/api/timedout', target='_blank') /api/timedout
+    a(href='http://nodechecker.com/api/timedout', target='_blank') /api/timedout
     |  - modules that timed out during verification
   p GET 
-    a(href='http://npmt.abru.pt/api/tarball', target='_blank')  /api/tarball
+    a(href='http://nodechecker.com/api/tarball', target='_blank')  /api/tarball
     |  - modules with an invalid tarball
   p GET 
-    a(href='http://npmt.abru.pt/api/ok', target='_blank')  /api/ok
+    a(href='http://nodechecker.com/api/ok', target='_blank')  /api/ok
     |  - modules with passed tests
   p GET 
-    a(href='http://npmt.abru.pt/api/nok', target='_blank')  /api/nok
+    a(href='http://nodechecker.com/api/nok', target='_blank')  /api/nok
     |  - modules with failed tests
   p GET 
-    a(href='http://npmt.abru.pt/api/withouttests', target='_blank')  /api/withouttests
+    a(href='http://nodechecker.com/api/withouttests', target='_blank')  /api/withouttests
     |  - modules without tests
+  p GET 
+    a(href='http://nodechecker.com/api/info/nano', target='_blank')  /api/info/[module]
+    |  - get test info (test status, output, date)
 
 article
   h2 Disclaimer
   p Timed out - it means that 5 minutes of running time was not enough.
-  p Invalid tarball - for some reason the tarball arrived corrupted.
+  p Invalid tarball - for some reason the tarball is invalid/corrupted/404 or empty npm info.
   p Test nonexistent - Tests were not detected.
-  p Failed - 'npm test' failed, this does NOT means the module is broken. Ex. A test that needs human intervention/input/configuration/...
-  p Globally this isn't by far a good scientific metric, it was an idea I wanted to try and see what results it produced. Please don't make judgements based on these results.
-
-article
-  h2 Improvements
-  p Refactor the code and make it available.
-  p Find out why 'npm test' exits with exit code 0 when there are no tests in the module.
-  p Improve container life cycle. (currently based on 
-    a(href='https://github.com/dotcloud/docker/wiki/Docker-run-improvements', target='_blank') these
-    |  ideas)
-  p Save every test output and make them available in the website.
+  p Failed - 'npm test' failed, this does NOT mean the module is broken. (ex: a test that needs human intervention/input/configuration/...)
+  p This isn't a good scientific metric. Do NOT make judgements based on these results.

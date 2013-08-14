@@ -38,6 +38,7 @@ function StatsCtrl($scope, $http, $location) {
     chart1.options = {
         "fill": 20,
         "displayExactValues": true,
+        "backgroundColor": { fill:'transparent' },
         "slices": {2:{color: '#109618'}, 3:{color: '#ff9900'}}
     };
 
@@ -55,4 +56,17 @@ function StatsCtrl($scope, $http, $location) {
   });
 }
 
+function SearchCtrl($scope, $http, $location) {
+
+  $scope.searchModule = function(module) {
+    $http.get('/api/info/' + module).success(function (data, status, headers, config) {
+      $scope.moddata = data;
+      $scope.moddata.outputf = ansi_up.ansi_to_html(data.output);
+      //console.log(ansi_up.ansi_to_html(data.output));
+      //console.log(data);
+    });
+  };
+}
+
 StatsCtrl.$inject = ['$scope', '$http', '$location'];
+SearchCtrl.$inject = ['$scope', '$http', '$location'];

@@ -1,5 +1,153 @@
+#searchbox
+  {
+    background: #E3E5E6;
+    background-image: -moz-linear-gradient(#fff, #E3E5E6);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #E3E5E6),color-stop(1, #fff));
+    
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #A8A8A8 #909191 #8D999B;         
+    width: 500px;
+    height: 35px;
+    padding: 10px;
+    margin: 0px auto 0px;
+    overflow: hidden;
+  }
+    
+#search, #submit
+{
+    float: left;
+}
+
+#search
+{
+    padding: 5px 9px;
+    height: 35px;
+    width: 400px;
+    border: 1px solid #9CA7AA;
+    font: normal 13px 'trebuchet MS', arial, helvetica;
+    background: #f1f1f1;
+    
+    -moz-border-radius: 50px 3px 3px 50px;
+     border-radius: 50px 3px 3px 50px;
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+/* ----------------------- */
+    
+#submit
+{   
+        background: #6cbb6b;
+        background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+        
+        -moz-border-radius: 3px 50px 50px 3px;
+        border-radius: 3px 50px 50px 3px;
+        
+        border-width: 1px;
+        border-style: solid;
+        border-color: #7eba7c #578e57 #447d43;
+        
+         -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+         -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+         box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;      
+
+  height: 35px;
+  margin: 0 0 0 10px;
+  padding: 0;
+  width: 90px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #23441e;
+  
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#submit:hover
+{   
+        background: #95d788;
+        background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+} 
+
+#submit:active
+{   
+        background: #95d788;
+  outline: none;
+       
+         -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+         -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
+}
+
+#submit::-moz-focus-inner
+{
+  border: none;
+}   
+    
+/* ----------------------- */
+
+#search::-webkit-input-placeholder {
+   color: #9c9c9c;
+   font-style: italic;
+}
+
+#search:-moz-placeholder {
+   color: #9c9c9c;
+   font-style: italic;
+}    
+
+#search.placeholder {
+   color: #9c9c9c !important;
+   font-style: italic;
+}  
+
+#search:focus
+{
+    border-color: #8badb4;
+    background: #fff;
+    outline: none;
+} 
 
 
+
+
+
+.infom {
+  float: left;
+  font-family: Gotham, "proxima-nova", sans-serif;
+}
+
+.infomm {
+  margin-left: 10px;
+}
+
+.output {
+  width: 97%;
+  float: left;
+  padding: 10px;
+  color: whitesmoke;
+  text-align: left;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  background-color: rgb(36, 36, 36);
+  height: 300px;
+  overflow-y: auto;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin: -20px 0 40px 0;
+  text-transform: uppercase;
+}
 
 
 borderbox {
@@ -33,12 +181,14 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 body {
+  background-image: url(/images/debut_light.png);
+  background-size: auto;
+  background-repeat: repeat repeat;
+
   font-family: Arial, sans-serif;
   width: 100%;
   height: 100%;
-  background: #fff;
-  background-repeat: no-repeat;
-  background-position: top center;
+
   line-height: 140%;
   -webkit-font-smoothing: antialised;
   padding-top: 20px;
@@ -47,6 +197,7 @@ body {
   text-align: center;
   font-family: "Chaparral Pro", "chaparral-pro", "Georgia", serif;
 }
+
 p {
   font-family: "Chaparral Pro", "chaparral-pro", "Georgia", serif;
   font-size: 18px;
@@ -142,8 +293,9 @@ article p {
   text-align: left;
   font-size: 20px;
   line-height: 120%;
-  max-width: 500px;
+  max-width: 600px;
   padding: 0 10px;
+  text-align: justify;
 }
 article p+h2 {
   margin-top: 60px;

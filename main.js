@@ -40,6 +40,8 @@ app.get('/api/tarball', api.tarball);
 app.get('/api/ok', api.ok);
 app.get('/api/nok', api.nok);
 app.get('/api/withouttests', api.withouttests);
+app.get('/api/conflicts', api.conflicts);
+app.get('/api/info/:module', api.info);
 
 app.get('*', routes.index);
 
