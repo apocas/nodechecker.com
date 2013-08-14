@@ -65,22 +65,25 @@ article
 article
   h2 API / Data
   p GET 
-    a(href='http://nodechecker.com/api/timedout', target='_blank') /api/timedout
+    a(href='http://api.nodechecker.com/stats', target='_blank') /stats
+    |  - statistics
+  p GET 
+    a(href='http://api.nodechecker.com/stats/timedout', target='_blank') /stats/timedout
     |  - modules that timed out during verification
   p GET 
-    a(href='http://nodechecker.com/api/tarball', target='_blank')  /api/tarball
+    a(href='http://api.nodechecker.com/stats/tarball', target='_blank')  /stats/tarball
     |  - modules with an invalid tarball
   p GET 
-    a(href='http://nodechecker.com/api/ok', target='_blank')  /api/ok
+    a(href='http://api.nodechecker.com/stats/ok', target='_blank')  /stats/ok
     |  - modules with passed tests
   p GET 
-    a(href='http://nodechecker.com/api/nok', target='_blank')  /api/nok
+    a(href='http://api.nodechecker.com/stats/nok', target='_blank')  /stats/nok
     |  - modules with failed tests
   p GET 
-    a(href='http://nodechecker.com/api/withouttests', target='_blank')  /api/withouttests
+    a(href='http://api.nodechecker.com/stats/withouttests', target='_blank')  /stats/withouttests
     |  - modules without tests
   p GET 
-    a(href='http://nodechecker.com/api/info/nano', target='_blank')  /api/info/[module]
+    a(href='http://api.nodechecker.com/info/nano', target='_blank')  /info/[module]
     |  - get test info (test status, output, date)
 
 article

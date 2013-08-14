@@ -1,5 +1,5 @@
 {
-    "name"        : "npmt_site"
+    "name"        : "nodechecker.com"
   , "version"     : "0.0.1"
   , "homepage"    : "http://nodechecker.com"
   , "description" : "Testing npm modules 24h/7"
@@ -7,7 +7,7 @@
       "express"           : "*"
       , "jade"              : "*"
       , "stylus"            : "*"
-      , "redis"            : "*"
+      , "request"            : "*"
     }
   , "main"    : "./main.js"
 }

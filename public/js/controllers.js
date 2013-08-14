@@ -1,7 +1,7 @@
 'use strict';
 
 function StatsCtrl($scope, $http, $location) {
-  $http.get('/stats').success(function (data, status, headers, config) {
+  $http.get('/api/stats').success(function (data, status, headers, config) {
     $scope.stats = data;
 
 

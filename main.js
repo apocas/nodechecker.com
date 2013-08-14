@@ -33,20 +33,13 @@ function compile(str, path){
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
-app.get('/stats', api.stats);
-
-app.get('/api/timedout', api.timedout);
-app.get('/api/tarball', api.tarball);
-app.get('/api/ok', api.ok);
-app.get('/api/nok', api.nok);
-app.get('/api/withouttests', api.withouttests);
-app.get('/api/conflicts', api.conflicts);
+app.get('/api/stats', api.stats);
 app.get('/api/info/:module', api.info);
 
 app.get('*', routes.index);
 
 
 var port = process.env.PORT || 3200;
-console.log("Listening on " + port);
+console.log('Listening on ' + port);
 
 app.listen(port);
