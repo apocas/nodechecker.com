@@ -55,7 +55,7 @@ article
   p In order to guarantee test standardization and equality all tests are done using 
     a(href='http://docker.io', target='_blank') docker
     |  containers.
-  p A container is created and then the module is tested inside it, while it's monitoring exit codes. In the end the container is killed and removed.
+  p A container is created and then the module is tested inside it, saving it's exit codes. In the end the container is killed and removed.
   p If your module was updated since last test it will be tested again.
   p
     img(src="images/nodechecker.png")
@@ -85,6 +85,9 @@ article
   p GET 
     a(href='http://api.nodechecker.com/info/nano', target='_blank')  /info/[module]
     |  - get test info (test status, output, date)
+  p POST 
+    a(href='http://api.nodechecker.com/test', target='_blank')  /test
+    |  - on demand testing (POST parameters: [module],[repository](optional) or [repository],[branch](optional))
 
 article
   h2 Disclaimer
