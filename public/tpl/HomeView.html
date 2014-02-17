@@ -1,0 +1,72 @@
+<section class="panel-countdown">
+  <div id="countdown_dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" style="margin: 0 0 69px 0;">
+          <h1 style="margin-bottom: 0px;">NODECHECKER</h1>
+          <h4 style="margin-top: 0px; text-align:center">Autonomously testing all npm modules</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-3 text-center">
+          <div class="dash days_dash">
+            <div class="dash-container">
+              <div id="digit_ok" class="digit">0</div>
+              <span class="dash_title">OK</span>
+              <span id="percentage_ok" class="dash_percentage"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+          <div class="dash hours_dash">
+            <div class="dash-container">
+              <div id="digit_nok" class="digit">0</div>
+              <span class="dash_title">NOK</span>
+              <span id="percentage_nok" class="dash_percentage"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+          <div class="dash minutes_dash">
+            <div class="dash-container">
+              <div id="digit_nottested" class="digit">0</div>
+              <span class="dash_title">Not Tested</span>
+              <span id="percentage_nottested" class="dash_percentage"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+          <div class="dash seconds_dash">
+            <div class="dash-container">
+              <div id="digit_timedout" class="digit">0</div>
+              <span class="dash_title">Timedout</span>
+              <span id="percentage_timedout" class="dash_percentage"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row subscribe">
+        <div class="col-xs-12">
+          <div class="form">
+            <h2>Search for a module</h2>
+            <form>
+              <input name="module" id="module" class="subscribe-box"/>
+              <input type="submit" value="Search" id="submit" class="subscribe-btn">
+              <!-- Begin loader -->
+              <div id="loading">
+                <div id="loading-status">
+                  <div id="circleL">
+                    <div id="circleL_1" class="circleL"></div>
+                    <div id="circleL_2" class="circleL"></div>
+                    <div id="circleL_3" class="circleL"></div> 
+                  </div>
+                </div>
+              </div>
+              <!-- End loader -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

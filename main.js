@@ -1,6 +1,5 @@
 var express = require('express'),
   stylus  = require('stylus'),
-  routes = require('./routes'),
   api     = require('./routes/api');
 
 var app = express();
@@ -14,8 +13,6 @@ app.configure(function(){
 
 app.configure(function(){
  this
-   .set('views', __dirname + '/views')
-   .set('view engine', 'jade')
    .use(stylus.middleware({
      src: __dirname + '/public',
      compile: compile
@@ -30,14 +27,9 @@ function compile(str, path){
     .include(nib.path);
 }
 
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
 
 app.get('/api/stats', api.stats);
 app.get('/api/info/:module', api.info);
-
-app.get('*', routes.index);
-
 
 var port = process.env.PORT || 3200;
 console.log('Listening on ' + port);
