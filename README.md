@@ -13,6 +13,8 @@ Nodechecker NPM crawler [https://github.com/apocas/nodechecker-crawler](https://
 
 Nodechecker balancer [https://github.com/apocas/nodechecker-balancer](https://github.com/apocas/nodechecker-balancer)
 
+Test runner [https://github.com/apocas/nodechecker-processor](https://github.com/apocas/nodechecker-processor)
+
 Container/test abstraction [https://github.com/apocas/nodechecker-tester](https://github.com/apocas/nodechecker-tester)
 
 API [https://github.com/apocas/nodechecker.com](https://github.com/apocas/nodechecker-api)
