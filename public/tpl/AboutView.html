@@ -1,12 +1,30 @@
 <section class="panel-about">
   <div class="container">
     <div class="row">
+      <div class="col-xs-12" style="margin: 0 0 69px 0;">
+        <h1 style="margin-bottom: 0px;">About</h1>
+        <h4 style="margin-top: 0px; text-align:center">How does it work</h4>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12">
-        <p>In order to guarantee test standardization and equality all tests are done using <a href="http://docker.io" target="_blank">docker</a> containers.</p>
-        <p>A container is created and then the module is tested inside it, saving it's exit codes. In the end the container is killed and removed.</p>
-        <p>If your module was updated since last test it will be tested again.</p>
-        <p>Test scripts like: "'echo "Error: no test specified" && exit 1" are considered dummy test scripts.</p>
-        <p style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" src="images/nodechecker.png"/></p>
+        <ul>
+          <li>
+            <p>In order to guarantee test standardization and equality all tests are done using <a href="http://docker.io" target="_blank">docker</a> containers.</p>
+          </li>
+          <li>
+            <p>A container is created and then the module is tested inside it, saving it's exit codes. In the end the container is killed and removed.</p>
+          </li>
+          <li>
+            <p>If your module was updated since last test it will be tested again.</p>
+          </li>
+          <li>
+            <p>Test scripts like: "'echo "Error: no test specified" && exit 1" are considered dummy test scripts.</p>
+          </li>
+        </ul>
+        <p style="text-align: center;">
+          <img style="max-width: 100%; max-height: 100%;" src="images/nodechecker.png" />
+        </p>
       </div>
     </div>
   </div>
