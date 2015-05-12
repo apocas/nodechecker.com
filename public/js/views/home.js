@@ -37,7 +37,7 @@ window.HomeView = Backbone.View.extend({
       $('#stats_tested', this.el).html((((data.ok + data.nok) / total) * 100).toFixed(0) + '%');
       $('#stats_untested', this.el).html((((data.nottested) / total) * 100).toFixed(0) + '%');
       $('#stats_queue', this.el).html(data.null || 0);
-      $('#stats_published', this.el).html(data.null + data.failed + data.timedout + data.nok + data.ok + data.nottested);
+      $('#stats_published', this.el).html((data.null || 0) + data.failed + data.timedout + data.nok + data.ok + data.nottested);
       $('#stats_doe', this.el).html((((data.failed + data.timedout) / total) * 100).toFixed(0) + '%');
 
       $('.loader').hide();
