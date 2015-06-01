@@ -29,7 +29,7 @@ function compile(str, path){
 
 
 app.get('/api/stats', api.stats);
-app.get('/api/info/:module', api.info);
+app.get('/api/info/:module(@\\w+/\\w+|\\w+)', api.info);
 
 var port = process.env.PORT || 3200;
 console.log('Listening on ' + port);
